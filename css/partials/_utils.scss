@@ -1,0 +1,59 @@
+@mixin opacity($value:0.5) {
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="$value*100")";
+  filter: alpha(opacity=$value*100);
+  zoom: 1;
+}
+
+@mixin rotate($value:0) {
+  -webkit-transform: rotate($value);
+  -moz-transform: rotate($value);
+  -ms-transform: rotate($value);
+  -o-transform: rotate($value);
+  transform: rotate($value);
+}
+
+@mixin transition-duration($value:500ms) {
+  -webkit-transition-duration: $value;
+  -moz-transition-duration: $value;
+  -o-transition-duration: $value;
+  transition-duration: $value;
+}
+
+@mixin transition-timing-function($value:linear) {
+  -webkit-transition-timing-function: $value;
+  -moz-transition-timing-function: $value;
+  -o-transition-timing-function: $value;
+  transition-timing-function: $value;
+}
+
+@mixin transition-property($value:all)  {
+  -webkit-transition-property: $value;
+  -moz-transition-property: $value;
+  -o-transition-property: $value;
+  transition-property: $value;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+$browser-context: 16; // Default
+ @function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em
+}
+
