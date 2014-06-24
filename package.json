@@ -1,0 +1,12 @@
+{
+    "name" : "NAME",
+    "version" : "1.0.0",
+    "author" : "Andrea Usseglio Gaudi",
+    "private" : true,
+    "devDependencies" : {
+      "gulp" : "*",
+      "gulp-ruby-sass" : "*",
+      "gulp-plumber" : "*",
+      "gulp-livereload" : "*"
+    }
+}
