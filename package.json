@@ -7,6 +7,8 @@
       "gulp" : "*",
       "gulp-ruby-sass" : "*",
       "gulp-plumber" : "*",
-      "gulp-livereload" : "*"
+      "gulp-livereload" : "*",
+      "gulp-jshint" : "*",
+      "jshint-stylish" : "*"
     }
 }
