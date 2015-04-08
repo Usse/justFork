@@ -1,2 +1,2 @@
 ###npm install
-###gulp watch
+###gulp dev
