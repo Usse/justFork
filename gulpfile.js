@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber');
     livereload = require('gulp-livereload');
     jshint = require('gulp-jshint');
+    connect = require('gulp-connect');
     htmlhint = require("gulp-htmlhint");
 
 // gulp.task('styles', function() {
@@ -31,7 +32,13 @@ gulp.task('htmlhint',function() {
   return gulp.src('index.html')
     .pipe(htmlhint('.htmlhintrc'))
     .pipe(htmlhint.reporter());
-})
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    port: 9090
+  });
+});
 
 /*
 gulp.task('html', function() {
@@ -56,3 +63,6 @@ gulp.task('watch', function() {
   gulp.watch(['css/*/*/*/*.scss', 'css/*/*/*.scss', 'css/*/*.scss','css/*.scss'],['styles']);
   //gulp.watch(['*.html'],['html']);
 });
+
+
+gulp.task('dev', ['connect', 'watch']);

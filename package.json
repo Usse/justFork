@@ -10,6 +10,7 @@
       "gulp-livereload" : "*",
       "gulp-jshint" : "*",
       "jshint-stylish" : "*",
-      "gulp-htmlhint" : "*"
+      "gulp-htmlhint" : "*",
+      "gulp-connect" : "*"
     }
 }
