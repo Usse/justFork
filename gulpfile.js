@@ -5,12 +5,18 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint');
     htmlhint = require("gulp-htmlhint");
 
+// gulp.task('styles', function() {
+//   return gulp.src('css/screen.scss')
+//     .pipe(plumber())
+//     .pipe(sass({style : 'expanded'}))
+//     .pipe(gulp.dest('css'))
+//     .pipe(livereload());
+// });
+
+
 gulp.task('styles', function() {
-  return gulp.src('css/screen.scss')
-    .pipe(plumber())
-    .pipe(sass({style : 'expanded'}))
-    .pipe(gulp.dest('css'))
-    .pipe(livereload());
+    return sass('css/screen.scss', { style: 'expanded' })
+    .pipe(plumber()).pipe(gulp.dest('css')).pipe(livereload());
 });
 
 
