@@ -6779,6 +6779,295 @@ button.close {
   padding: 10px;
 }
 
+/* ==========================================================================
+   Some common fixes
+   ========================================================================== */
+/*
+ * Box-sizing: border-box FTW!
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Force scrollbar to prevent content jump
+ */
+:root {
+  overflow-y: scroll;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Better font rendering
+ */
+:root {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Not allowed cursor for disabled elements.
+ * https://youtu.be/54wJkqG8jXE?t=35m50s
+ */
+*[disabled]:hover {
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Responsive utilities for Sass
+   ========================================================================== */
+/*
+ * Breakpoints map based on Bootstrap
+ * http://getbootstrap.com/css/#responsive-utilities
+ */
+/*
+ * Mixin for generating media queries from the $breakpoints map
+ *
+ * Accepts a key from $breakpoints (like "xs" or "md") and
+ * a string with extra parameters (like "(orientation: portrait)").
+ *
+ * Usage:
+ * @include media-query([xs|sm|md|lg|xl], optional extra params){
+ *   ...
+ * }
+ *
+ */
+/* ==========================================================================
+   Opinionated default styles
+   ========================================================================== */
+/* Base styles
+   ========================================================================== */
+html {
+  color: #444;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Block elements
+   ========================================================================== */
+blockquote,
+ul, ol, dl,
+p, figure,
+pre, table, fieldset, hr {
+  /*
+   * Margins in single direction
+   * http://csswizardry.com/2012/06/single-direction-margin-declarations/
+   */
+  margin-top: 0;
+  margin-bottom: 1.625rem;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+ul, ol {
+  padding-left: 1.625rem;
+}
+
+dd {
+  margin-left: 1.625rem;
+  margin-bottom: 1.625rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 0.325rem solid;
+  padding-left: 1.3rem;
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+figcaption {
+  margin-top: 0.325rem;
+}
+
+/* Headings
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.38125;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 4.0625rem;
+  margin-bottom: 1.625rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3.25rem;
+  margin-bottom: 1.21875rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+  margin-top: 2.4375rem;
+  margin-bottom: 0.8125rem;
+}
+
+h4 {
+  font-size: 1rem;
+  margin-top: 2.03125rem;
+  margin-bottom: 0.40625rem;
+}
+
+h5 {
+  font-size: .83rem;
+  margin-top: 1.625rem;
+  margin-bottom: 0.1625rem;
+}
+
+h6 {
+  font-size: .67rem;
+  margin-top: 1.21875rem;
+  margin-bottom: 0rem;
+}
+
+/* Everything else
+   ========================================================================== */
+/*
+ * Make form elements the same height as $baseline
+ */
+button,
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-height: 1.625rem;
+}
+
+/* ==========================================================================
+   Print styles.
+
+   Adapted from HTML5 Boilerplate
+   https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L196
+   ========================================================================== */
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+       http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
 .centered {
   display: block;
   margin: 0 auto;

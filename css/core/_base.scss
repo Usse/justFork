@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Opinionated default styles
+   ========================================================================== */
+
+$color-text: #444 !default;
+$color-bg: #fff !default;
+$color-selection: #b3d4fc !default;
+
+$font-size: 16px !default;
+$sizing-unit: 1rem !default;
+
+$line-height: 1.625 !default;
+$baseline: $line-height * $sizing-unit !default;
+
+
+/* Base styles
+   ========================================================================== */
+
+html {
+  color: $color-text;
+  background-color: $color-bg;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+::selection {
+  background: $color-selection;
+  text-shadow: none; // https://twitter.com/miketaylr/status/12228805301
+}
+
+
+/* Block elements
+   ========================================================================== */
+
+%block-element {
+
+  /*
+   * Margins in single direction
+   * http://csswizardry.com/2012/06/single-direction-margin-declarations/
+   */
+
+  margin-top: 0;
+  margin-bottom: $baseline;
+}
+
+blockquote,
+ul, ol, dl,
+p, figure,
+pre, table, fieldset, hr {
+  @extend %block-element;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+ul, ol {
+  padding-left: $baseline;
+}
+
+dd {
+  margin-left: $baseline;
+  margin-bottom: $baseline;
+}
+
+dt { font-weight: bold; }
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  border-left: ($baseline/5) solid;
+  padding-left: $baseline - ($baseline/5);
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+figcaption {
+  margin-top: $baseline/5;
+}
+
+/* Headings
+   ========================================================================== */
+
+%heading {
+  line-height: $line-height*.85;
+}
+
+h1, h2, h3, h4, h5, h6 { @extend %heading; }
+
+h1 {
+  font-size: 2rem;
+  margin-top: $baseline*2.5;
+  margin-bottom: $baseline*1;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: $baseline*2;
+  margin-bottom: $baseline*.75;
+}
+
+h3 {
+  font-size: 1.17rem;
+  margin-top: $baseline*1.5;
+  margin-bottom: $baseline*.5;
+}
+
+h4 {
+  font-size: 1rem;
+  margin-top: $baseline*1.25;
+  margin-bottom: $baseline*.25;
+}
+
+h5 {
+  font-size: .83rem;
+  margin-top: $baseline*1;
+  margin-bottom: $baseline*.1;
+}
+
+h6 {
+  font-size: .67rem;
+  margin-top: $baseline*.75;
+  margin-bottom: $baseline*0;
+}
+
+
+/* Everything else
+   ========================================================================== */
+
+/*
+ * Make form elements the same height as $baseline
+ */
+
+button,
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-height: $baseline;
+}

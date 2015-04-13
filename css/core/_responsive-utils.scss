@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Responsive utilities for Sass
+   ========================================================================== */
+
+/*
+ * Breakpoints map based on Bootstrap
+ * http://getbootstrap.com/css/#responsive-utilities
+ */
+
+$breakpoints: (
+  "xs": "(max-width: 767px)",
+  "sm": "(min-width: 768px)",
+  "md": "(min-width: 992px)",
+  "lg": "(min-width: 1200px)",
+  "xl": "(min-width: 1600px)",
+) !default;
+
+
+/*
+ * Mixin for generating media queries from the $breakpoints map
+ *
+ * Accepts a key from $breakpoints (like "xs" or "md") and
+ * a string with extra parameters (like "(orientation: portrait)").
+ *
+ * Usage:
+ * @include media-query([xs|sm|md|lg|xl], optional extra params){
+ *   ...
+ * }
+ *
+ */
+
+@mixin media-query($breakpoint, $extra-params: false) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $extra-params != false and $value != "" {
+    @media only screen and #{$value} and #{$extra-params} {
+      @content;
+    }
+  }
+  @else {
+    @if $extra-params == false and $value != "" {
+      @media only screen and #{$value} {
+        @content;
+      }
+    }
+  }
+}
