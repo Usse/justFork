@@ -11,6 +11,7 @@
       "gulp-jshint" : "*",
       "jshint-stylish" : "*",
       "gulp-htmlhint" : "*",
-      "gulp-connect" : "*"
+      "gulp-connect" : "*",
+      "gulp-autoprefixer" : "*"
     }
 }

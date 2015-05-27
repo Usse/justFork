@@ -1,10 +1,11 @@
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
-    plumber = require('gulp-plumber');
-    livereload = require('gulp-livereload');
-    jshint = require('gulp-jshint');
-    connect = require('gulp-connect');
-    htmlhint = require("gulp-htmlhint");
+    plumber = require('gulp-plumber'),
+    livereload = require('gulp-livereload'),
+    jshint = require('gulp-jshint'),
+    connect = require('gulp-connect'),
+    htmlhint = require("gulp-htmlhint"),
+    autoprefixer = require('gulp-autoprefixer');
 
 // gulp.task('styles', function() {
 //   return gulp.src('css/screen.scss')
@@ -17,7 +18,13 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function() {
     return sass('css/screen.scss', { style: 'expanded' })
-    .pipe(plumber()).pipe(gulp.dest('css')).pipe(livereload());
+    .pipe(plumber())
+    .pipe(gulp.dest('css'))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(livereload());
 });
 
 
